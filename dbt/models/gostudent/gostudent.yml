@@ -1,0 +1,180 @@
+version: 2
+
+sources:
+- name: raw
+  schema: raw
+  tables:
+  - name: call
+    identifier: call
+  - name: clv
+    identifier: clv
+  - name: customer
+    identifier: customer
+  - name: lead
+    identifier: lead
+  - name: marketing_costs
+    identifier: marketing_costs
+  - name: sales_costs
+    identifier: sales_costs    
+    
+models:
+  - name: stg_call
+    description: "Staging model for calls"
+# skipping no_nan_values tests
+#    tests:
+#      - no_nan_values: {model_name: "stg_call"}
+    columns:
+      - name: call_id
+        tests:
+          - unique
+          - not_null
+      - name: contact_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_clv
+    description: "Staging model for clv"
+    columns:
+      - name: contract_length
+        tests:
+          - unique
+          - not_null
+      - name: avg_clv
+        tests:
+          - not_null
+
+  - name: stg_customer
+    description: "Staging model for customer"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: contact_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_date
+        tests:
+          - not_null
+
+  - name: stg_lead
+    description: "Staging model for customer"
+    columns:
+      - name: lead_id
+        tests:
+          - unique
+          - not_null
+      - name: contact_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_marketing_costs
+    description: "Staging model for marketing_costs"
+    columns:
+      - name: marketing_costs_date
+        tests:
+          - not_null
+      - name: marketing_source
+        tests:
+          - not_null
+      - name: marketing_costs     
+        tests:
+          - not_null
+
+  - name: stg_sales_costs
+    description: "Staging model for sales_costs"
+    columns:
+      - name: sales_costs_date
+        tests:
+          - unique
+          - not_null
+      - name: sales_costs
+        tests:
+          - not_null
+      - name: trial_costs     
+        tests:
+          - not_null
+
+  - name: monthly_cac
+    description: "Monthly Customer Acquisition Cost (CAC) including load timestamp"
+    columns:
+      - name: customer_month
+        description: "The month when the customer was acquired (format: YYYY-MM)"
+        tests:
+          - not_null
+          - unique
+      - name: load_ts
+        description: "Timestamp when the data was loaded into the table"
+        tests:
+          - not_null        
+
+  - name: monthly_ser
+    description: "Monthly Sales Efficiency Ratio (SER) including load timestamp"
+    columns:
+      - name: customer_month
+        description: "The month when the customer was acquired (format: YYYY-MM)"
+        tests:
+          - not_null
+          - unique
+      - name: load_ts
+        description: "Timestamp when the data was loaded into the table"
+        tests:
+          - not_null
+
+  - name: profitability_ratio
+    description: "Profitability ratio including load timestamp"
+    columns:
+      - name: marketing_source
+        description: "The marketing_source, i.e.: Google"
+        tests:
+          - not_null
+          - unique
+      - name: load_ts
+        description: "Timestamp when the data was loaded into the table"
+        tests:
+          - not_null          
+
+  - name: monthly_profitability_ratio
+    description: "Monthly profitability ratio including load timestamp"
+    columns:
+      - name: marketing_source
+        description: "The marketing_source, i.e.: Google"
+        tests:
+          - not_null
+      - name: customer_month
+        description: "The month when the customer was acquired (format: YYYY-MM)"
+        tests:
+          - not_null
+      - name: load_ts
+        description: "Timestamp when the data was loaded into the table"
+        tests:
+          - not_null  
+
+  - name: monthly_lcr
+    description: "Monthly LCR including load timestamp"
+    columns:
+      - name: lead_month
+        description: "The month when the customer was acquired (format: YYYY-MM)"
+        tests:
+          - unique
+          - not_null
+      - name: load_ts
+        description: "Timestamp when the data was loaded into the table"
+        tests:
+          - not_null            
+
+  - name: overall_profitability
+    description: "Overall profitability including load timestamp"
+    columns:
+      - name: overall_profitability
+        description: "The overall profitability"
+        tests:
+          - unique
+          - not_null
+      - name: load_ts
+        description: "Timestamp when the data was loaded into the table"
+        tests:
+          - not_null             
