@@ -74,6 +74,18 @@ $$
 LCR = \frac{The \ number \ of \ converted \ leads}{Total \ number \ of \ leads \ within \ timeframe } \text{\quad per \ monthly \ basis}
 $$
 
+# Architecture diagram
+The whole flow looks like this oversimplified:
+`csv files ---> ingest_raw_data --->  run_dbt_init_tasks ---> run_dbt_model_gostudent ---> equation analytics + superset dashboards`
+
+For more details, I enclose the workflow graphs
+* ingest_raw_data
+![image](https://github.com/user-attachments/assets/a742332c-ecd1-4361-aff0-97c5b35dbf5b)
+
+* run_dbt_model_gostudent
+![image](https://github.com/user-attachments/assets/6b55ead8-cb12-4e36-9625-31f512543231)
+
+
 # Improvement ideas
 * SSL for the web interfaces (nginx)
 * Dockerize the dbt part as well
