@@ -57,7 +57,22 @@ In superset it's possible to import the dashboard that I created. It consits of 
 
 ![image](https://github.com/user-attachments/assets/5d9ba01c-5b87-470c-b236-0f6be427058c)
 
-# The aggregated data
+# The equations for aggregated data
+$$
+CAC = \frac{ Total \ marketing \ Costs \ + \ Total \ Sales \ Costs \ + \ Total \ Trial \ Costs }{ New \ customers \ acquired } \text{\quad per monthly basis }
+$$
+
+$$
+SER = \frac{ Total \ Revenue \ (new \ customer \ sales)}{Total \ Marketing \ Costs \ + \ Total \ Sales \ Costs \ + \ Total \ Trial \ Costs \} \text{\quad per monthly basis}
+$$
+
+$$
+Profitability = \frac{Total \ Marketing \ Costs}{ Total \ Revenue} \text{\quad per\ monthly\ or \ aggregate \ or \ overall \ - \ three \ separate \ queries}
+$$
+
+$$
+LCR = \frac{The \ number \ of \ converted \ leads}{Total \ number \ of \ leads \ within \ timeframe } \text{\quad per \ monthly \ basis}
+$$
 
 # Improvement ideas
 * SSL for the web interfaces (nginx)
