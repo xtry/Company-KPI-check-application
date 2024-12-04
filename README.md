@@ -67,7 +67,7 @@ SER = \frac{ Total \ Revenue \ (new \ customer \ sales)}{Total \ Marketing \ Cos
 $$
 
 $$
-Profitability = \frac{Total \ Marketing \ Costs}{ Total \ Revenue} \text{\quad per\ monthly\ or \ aggregate \ or \ overall \ - \ three \ separate \ queries}
+Profitability = \frac{ Total \ Revenue}{Total \ Marketing \ Costs} \text{\quad per\ monthly\ or \ aggregate \ or \ overall \ - \ three \ separate \ queries}
 $$
 
 $$
