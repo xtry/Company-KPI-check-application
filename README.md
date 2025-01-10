@@ -1,6 +1,6 @@
 # Introduction
 I used an open-source solution to leverage code reusability, plus applied multiple fixes to it.
-I build my solution on top of airflow(for etl/elt), dbt, postgres and superset(for visualisation). I find airflow and superset convenient & straightforward to use, and the rest were mandatory for the task.
+I build my solution on top of airflow(for etl/elt), dbt, postgres and superset(for visualisation). I find airflow and superset convenient & straightforward to use, and I provide the most popular KPIs for a company in superset. Formulas are also attached.
 
 # Running the project
 * Run `init.sh` with sudo privilege to set up folder permissions. It also deletes the company_dw's data kept on the disk. Please check before running.
